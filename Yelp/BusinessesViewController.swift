@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate
+class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate
  {
 
     var businesses: [Business]!
+    var searchBar = UISearchBar()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -19,10 +20,14 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
-
+        tableView.estimatedRowHeight = 120
+        
+       // searchBar = UISearchBar()
+        navigationItem.titleView = searchBar
+        
         Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
