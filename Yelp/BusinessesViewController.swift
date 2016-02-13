@@ -22,8 +22,8 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         tableView.dataSource = self
         searchBar.delegate = self
         
-        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableViewAutomaticDimension
         
        // searchBar = UISearchBar()
         navigationItem.titleView = searchBar
@@ -73,6 +73,10 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessCell
         
         cell.business = businesses[indexPath.row]
+        
+        print (cell.frame.size.width)
+        print (cell.frame.size.height)
+        
         
         return cell
     }
