@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate
+class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, FiltersViewControllerDelegate
  {
 
     var businesses: [Business]!
@@ -35,6 +35,7 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
             for business in businesses {
                 print(business.name!)
                 print(business.address!)
+                  print (business.categories!)
             }
         })
 
@@ -56,7 +57,6 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // self.movies.count
         if businesses != nil
         {
             return self.businesses!.count
@@ -78,14 +78,27 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
     }
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    let navigationController = segue.destinationViewController as! UINavigationController
+    let filtersViewController = navigationController.topViewController as! FiltersViewController
+    filtersViewController.delegate = self
+    
     }
-    */
+    
+    func filtersViewController(filtersViewController: FiltersViewController, didFiltersUpdate filters: [String : AnyObject]) {
+       // Business.searchWithTerm("rest", completion: <#T##([Business]!, NSError!) -> Void#>)
+        let categories = filters["categories"] as? [String]
+        Business.searchWithTerm("rest", sort: nil, categories: categories!, deals: nil)
+            {   (businesses: [Business]!, error: NSError!) -> Void in
+                self.businesses = businesses
+                self.tableView.reloadData()
+                
+        }
+    }
+
 
 }
