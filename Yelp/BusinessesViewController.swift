@@ -13,6 +13,7 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
 
     var businesses: [Business]!
     var searchBar = UISearchBar()
+    var searchText = ""
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -28,15 +29,19 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
        // searchBar = UISearchBar()
         navigationItem.titleView = searchBar
         
-        Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
+        Business.searchWithTerm(searchBar.text!, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+            
+            print (self.searchBar.text!)
             self.businesses = businesses
             self.tableView.reloadData()
-        
+            
             for business in businesses {
                 print(business.name!)
                 print(business.address!)
                   print (business.categories!)
             }
+            self.searchBar.endEditing(true)
+            
         })
 
 /* Example of Yelp search with more search options specified
@@ -74,11 +79,9 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         
         cell.business = businesses[indexPath.row]
         
-        print (cell.frame.size.width)
-        print (cell.frame.size.height)
-        
-        
-        return cell
+       // print (cell.frame.size.width)
+       // print (cell.frame.size.height)
+      return cell
     }
 
 
@@ -96,12 +99,31 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
     func filtersViewController(filtersViewController: FiltersViewController, didFiltersUpdate filters: [String : AnyObject]) {
        // Business.searchWithTerm("rest", completion: <#T##([Business]!, NSError!) -> Void#>)
         let categories = filters["categories"] as? [String]
-        Business.searchWithTerm("rest", sort: nil, categories: categories!, deals: nil)
+        Business.searchWithTerm("resturant", sort: nil, categories: categories!, deals: nil)
             {   (businesses: [Business]!, error: NSError!) -> Void in
                 self.businesses = businesses
                 self.tableView.reloadData()
                 
         }
+    }
+    
+    private func applySearchOnText(queryTerm: String = "Restuarants") -> Void {
+        
+        Business.searchWithTerm(queryTerm) {
+            (businesses: [Business]!, error: NSError!) -> Void in
+            self.businesses = businesses
+            self.tableView.reloadData()
+            
+        }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.applySearchOnText(searchBar.text!)
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
     }
 
 
