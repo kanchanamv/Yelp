@@ -36,7 +36,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="123 Chapel Way Misson Bay" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98y-rP-xpc">
-                                                    <rect key="frame" x="81" y="48" width="227" height="15"/>
+                                                    <rect key="frame" x="81" y="48" width="219" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -100,7 +100,7 @@
                                                 <constraint firstItem="98y-rP-xpc" firstAttribute="top" secondItem="ler-nG-ca9" secondAttribute="bottom" constant="2" id="mD1-ax-oAS"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Av0-Ma-wce" secondAttribute="bottom" constant="12" id="ot1-KU-4bb"/>
                                                 <constraint firstAttribute="trailing" secondItem="LGB-hg-pRr" secondAttribute="trailing" constant="8" id="qQH-cj-E0c"/>
-                                                <constraint firstAttribute="trailing" secondItem="98y-rP-xpc" secondAttribute="trailing" constant="12" id="tlV-qh-5Wh"/>
+                                                <constraint firstAttribute="trailing" secondItem="98y-rP-xpc" secondAttribute="trailing" constant="20" id="tlV-qh-5Wh"/>
                                                 <constraint firstItem="98y-rP-xpc" firstAttribute="leading" secondItem="Av0-Ma-wce" secondAttribute="trailing" constant="8" id="zHx-Td-P3t"/>
                                             </constraints>
                                         </tableViewCellContentView>
