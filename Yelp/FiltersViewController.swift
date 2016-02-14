@@ -277,12 +277,16 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         //cell.onSwitch.on = switchStates![indexPath.row]!
 
         
-            if(switchStates != nil){
-                cell.onSwitch.on = switchStates![indexPath.row]!
+            if(switchStates != nil) {
+                cell.onSwitch.on = switchStates![indexPath.row] ?? false
             }
             else{
              cell.onSwitch.on  = false
             }
+            
+          //  cell.onSwitch.on  = switchStates![indexPath.row] ?? false
+            
+
             return cell
             
         

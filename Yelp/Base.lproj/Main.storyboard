@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--YelpIt-->
@@ -193,7 +194,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-rR-EBN">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-rR-EBN">
                                                     <rect key="frame" x="14" y="30" width="290" height="29"/>
                                                     <segments>
                                                         <segment title="Within 1 Mile"/>
@@ -202,6 +203,12 @@
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="K3i-rR-EBN" firstAttribute="top" secondItem="Z0c-3t-hwT" secondAttribute="top" constant="30" id="9Yh-9w-MeK"/>
+                                                <constraint firstAttribute="trailing" secondItem="K3i-rR-EBN" secondAttribute="trailing" constant="16" id="GcT-e1-ujN"/>
+                                                <constraint firstItem="K3i-rR-EBN" firstAttribute="leading" secondItem="Z0c-3t-hwT" secondAttribute="leading" constant="14" id="b25-N7-aig"/>
+                                                <constraint firstAttribute="bottom" secondItem="K3i-rR-EBN" secondAttribute="bottom" constant="29" id="l18-0z-CVk"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="distanceSegmentedControl" destination="K3i-rR-EBN" id="PNs-wq-HoA"/>
@@ -214,8 +221,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5jk-qV-fz8">
-                                                    <rect key="frame" x="15" y="30" width="274" height="29"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5jk-qV-fz8">
+                                                    <rect key="frame" x="14" y="23" width="287" height="29"/>
                                                     <segments>
                                                         <segment title="Best Matched"/>
                                                         <segment title="Distance"/>
@@ -223,6 +230,12 @@
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5jk-qV-fz8" firstAttribute="top" secondItem="lSO-su-0Vk" secondAttribute="top" constant="23" id="G3J-SY-FtV"/>
+                                                <constraint firstItem="5jk-qV-fz8" firstAttribute="leading" secondItem="lSO-su-0Vk" secondAttribute="leading" constant="14" id="QFP-cB-M3Q"/>
+                                                <constraint firstAttribute="bottom" secondItem="5jk-qV-fz8" secondAttribute="bottom" constant="36" id="lae-na-JxS"/>
+                                                <constraint firstAttribute="trailing" secondItem="5jk-qV-fz8" secondAttribute="trailing" constant="19" id="y8F-Ui-9kW"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="sortSegments" destination="5jk-qV-fz8" id="XEb-gQ-z8h"/>
@@ -235,16 +248,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-T5-xg1">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-T5-xg1">
                                                     <rect key="frame" x="252" y="28" width="51" height="31"/>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Deals?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP6-Mc-Qt2">
-                                                    <rect key="frame" x="29" y="33" width="98" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offering Deals?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP6-Mc-Qt2">
+                                                    <rect key="frame" x="24" y="28" width="119" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lgV-T5-xg1" firstAttribute="top" secondItem="9d2-X7-X82" secondAttribute="topMargin" constant="20" id="12p-3l-sCf"/>
+                                                <constraint firstAttribute="bottom" secondItem="lgV-T5-xg1" secondAttribute="bottom" constant="28" id="B1W-Kg-rrH"/>
+                                                <constraint firstItem="OP6-Mc-Qt2" firstAttribute="leading" secondItem="9d2-X7-X82" secondAttribute="leading" constant="24" id="cvw-PM-lNL"/>
+                                                <constraint firstItem="OP6-Mc-Qt2" firstAttribute="top" secondItem="9d2-X7-X82" secondAttribute="top" constant="28" id="ij7-J1-SBm"/>
+                                                <constraint firstAttribute="trailing" secondItem="lgV-T5-xg1" secondAttribute="trailing" constant="19" id="lKE-K2-UfR"/>
+                                                <constraint firstAttribute="bottom" secondItem="OP6-Mc-Qt2" secondAttribute="bottom" constant="38" id="muH-7s-ZCX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dealsLabel" destination="OP6-Mc-Qt2" id="mr0-cb-24A"/>
