@@ -15,6 +15,7 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
     var businesses: [Business]!
     var searchBar = UISearchBar()
     var searchText = ""
+    var offset = 1
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -41,20 +42,26 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         tableView.infiniteScrollIndicatorMargin = 40
         
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            self.offset = self.offset + 10
             let tableView = scrollView as! UITableView
-        Business.searchWithTerm(self.searchBar.text!, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+            Business.searchWithTerm(self.searchBar.text!, sort: nil, categories: nil, deals: nil, distance: nil,
+                offset: self.offset,  completion: { (businesses: [Business]!, error: NSError!) -> Void in
             
             print (self.searchBar.text!)
-            self.businesses = businesses
+                    for business in businesses {
+                        self.businesses.append(business)
+                        
+//                        print(business.name!)
+//                        print(business.address!)
+//                        print (business.categories!)
+                    }
+                    self.searchBar.endEditing(true)
+                    
+            
             self.tableView.reloadData()
             tableView.finishInfiniteScroll()
             
-            for business in businesses {
-                print(business.name!)
-                print(business.address!)
-                print (business.categories!)
-            }
-            self.searchBar.endEditing(true)
+            
             
         })}
         
@@ -115,7 +122,7 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         print (filters["distance"]!)
         // Business.searchWithTerm("rest", completion: <#T##([Business]!, NSError!) -> Void#>)
         let categories = filters["categories"] as? [String]
-        Business.searchWithTerm("restaurant", sort: YelpSortMode (rawValue: (filters["sort"] as? Int)!), categories: categories, deals: filters["deals"] as? Bool, distance: filters["distance"] as? NSNumber )
+        Business.searchWithTerm("restaurant", sort: YelpSortMode (rawValue: (filters["sort"] as? Int)!), categories: categories, deals: filters["deals"] as? Bool, distance: filters["distance"] as? NSNumber, offset: 0 )
             {   (businesses: [Business]!, error: NSError!) -> Void in
                 self.businesses = businesses
                 self.tableView.reloadData()
