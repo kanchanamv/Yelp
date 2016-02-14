@@ -9,23 +9,32 @@
 import UIKit
 
 @objc protocol SortCellDelegate {
-    optional func sortCell(sortCell: SortCell, didChangeValue value: Bool)
+    optional func sortCell(sortCell: SortCell, sortValueChanged newSortValue: Int)
 }
 
 class SortCell: UITableViewCell {
     
-    var delegate: SortCellDelegate!
+   weak var delegate: SortCellDelegate!
 
-    @IBOutlet weak var sortSegments: UIView!
+    @IBOutlet weak var sortSegments: UISegmentedControl!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        sortSegments.addTarget(self, action: "sortFilterChanged", forControlEvents: UIControlEvents.ValueChanged)
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
     }
+    
+    func sortFilterChanged()
+    {
+        delegate!.sortCell!(self, sortValueChanged: sortSegments.selectedSegmentIndex)
+    }
+
 
 }

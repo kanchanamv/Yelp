@@ -9,8 +9,8 @@
 import UIKit
 
 class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, FiltersViewControllerDelegate
- {
-
+{
+    
     var businesses: [Business]!
     var searchBar = UISearchBar()
     var searchText = ""
@@ -26,7 +26,7 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         
-       // searchBar = UISearchBar()
+        // searchBar = UISearchBar()
         navigationItem.titleView = searchBar
         
         Business.searchWithTerm(searchBar.text!, completion: { (businesses: [Business]!, error: NSError!) -> Void in
@@ -38,24 +38,24 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
             for business in businesses {
                 print(business.name!)
                 print(business.address!)
-                  print (business.categories!)
+                print (business.categories!)
             }
             self.searchBar.endEditing(true)
             
         })
-
-/* Example of Yelp search with more search options specified
+        
+        /* Example of Yelp search with more search options specified
         Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-            self.businesses = businesses
-            
-            for business in businesses {
-                print(business.name!)
-                print(business.address!)
-            }
+        self.businesses = businesses
+        
+        for business in businesses {
+        print(business.name!)
+        print(business.address!)
         }
-*/
+        }
+        */
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,7 +65,7 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         if businesses != nil
         {
             return self.businesses!.count
-        
+            
         } else
         {
             return 0
@@ -79,28 +79,29 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         
         cell.business = businesses[indexPath.row]
         
-       // print (cell.frame.size.width)
-       // print (cell.frame.size.height)
-      return cell
+        // print (cell.frame.size.width)
+        // print (cell.frame.size.height)
+        return cell
     }
-
-
+    
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    let navigationController = segue.destinationViewController as! UINavigationController
-    let filtersViewController = navigationController.topViewController as! FiltersViewController
-    filtersViewController.delegate = self
-    
+        let navigationController = segue.destinationViewController as! UINavigationController
+        let filtersViewController = navigationController.topViewController as! FiltersViewController
+        filtersViewController.delegate = self
+        
     }
     
     func filtersViewController(filtersViewController: FiltersViewController, didFiltersUpdate filters: [String : AnyObject]) {
-       print (filters["deals"]!)
-       // Business.searchWithTerm("rest", completion: <#T##([Business]!, NSError!) -> Void#>)
+        print (filters["deals"]!)
+        print (filters["distance"]!)
+        // Business.searchWithTerm("rest", completion: <#T##([Business]!, NSError!) -> Void#>)
         let categories = filters["categories"] as? [String]
-        Business.searchWithTerm("restaurant", sort: nil, categories: categories!, deals: filters["deals"] as? Bool)
+        Business.searchWithTerm("restaurant", sort: YelpSortMode (rawValue: (filters["sort"] as? Int)!), categories: categories, deals: filters["deals"] as? Bool, distance: filters["distance"] as? NSNumber )
             {   (businesses: [Business]!, error: NSError!) -> Void in
                 self.businesses = businesses
                 self.tableView.reloadData()
@@ -126,6 +127,6 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
     }
-
-
+    
+    
 }

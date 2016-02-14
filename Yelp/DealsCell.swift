@@ -17,7 +17,7 @@ class DealsCell: UITableViewCell {
 
     @IBOutlet weak var dealsLabel: UILabel!
     @IBOutlet weak var dealsSwitch: UISwitch!
-    var delegate: DealsCellDelegate?
+   weak var delegate: DealsCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

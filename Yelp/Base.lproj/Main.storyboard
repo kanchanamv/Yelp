@@ -186,8 +186,29 @@
                                             <outlet property="switchLabel" destination="I9t-5i-QXa" id="zmh-wg-re6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortCell" rowHeight="88" id="xsk-1T-Xgl" customClass="SortCell" customModule="Yelp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DistanceCell" rowHeight="88" id="ggM-MT-Ddu" customClass="DistanceCell" customModule="Yelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="180" width="320" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ggM-MT-Ddu" id="Z0c-3t-hwT">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-rR-EBN">
+                                                    <rect key="frame" x="14" y="30" width="290" height="29"/>
+                                                    <segments>
+                                                        <segment title="Within 1 Mile"/>
+                                                        <segment title="Within 5 Miles"/>
+                                                        <segment title="Within 10 Miles"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="distanceSegmentedControl" destination="K3i-rR-EBN" id="PNs-wq-HoA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortCell" rowHeight="88" id="xsk-1T-Xgl" customClass="SortCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="268" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xsk-1T-Xgl" id="lSO-su-0Vk">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
@@ -196,19 +217,19 @@
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5jk-qV-fz8">
                                                     <rect key="frame" x="15" y="30" width="274" height="29"/>
                                                     <segments>
-                                                        <segment title="First"/>
-                                                        <segment title="Second"/>
-                                                        <segment title=""/>
+                                                        <segment title="Best Matched"/>
+                                                        <segment title="Distance"/>
+                                                        <segment title="High Ratings"/>
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="sortSegments" destination="lSO-su-0Vk" id="5Af-Yx-q3n"/>
+                                            <outlet property="sortSegments" destination="5jk-qV-fz8" id="XEb-gQ-z8h"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DealsCell" rowHeight="88" id="oWZ-OH-OjG" customClass="DealsCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268" width="320" height="88"/>
+                                        <rect key="frame" x="0.0" y="356" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oWZ-OH-OjG" id="9d2-X7-X82">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
@@ -228,27 +249,6 @@
                                         <connections>
                                             <outlet property="dealsLabel" destination="OP6-Mc-Qt2" id="mr0-cb-24A"/>
                                             <outlet property="dealsSwitch" destination="lgV-T5-xg1" id="wLd-Vm-4DN"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DistanceCell" rowHeight="88" id="ggM-MT-Ddu" customClass="DistanceCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="356" width="320" height="88"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ggM-MT-Ddu" id="Z0c-3t-hwT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-rR-EBN">
-                                                    <rect key="frame" x="14" y="30" width="290" height="29"/>
-                                                    <segments>
-                                                        <segment title="First"/>
-                                                        <segment title="Second"/>
-                                                        <segment title=""/>
-                                                    </segments>
-                                                </segmentedControl>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="distanceSegmentedControl" destination="K3i-rR-EBN" id="PNs-wq-HoA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

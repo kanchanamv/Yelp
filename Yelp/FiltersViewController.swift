@@ -17,32 +17,42 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var filtersTableView: UITableView!
     
-    var switchStates = [Int:Bool]()
-    var delegate: FiltersViewControllerDelegate?
+    var switchStates = [Int:Bool]?()
+   weak var delegate: FiltersViewControllerDelegate?
     var deals = false
-    
+    var selectedType = 0
+    var distance : NSNumber = 1609
+    var categories: [[String: String]]!
     var FilterSections: [String] = ["Category","Sort","Deals","Distance"]
+    
+    //var FilterSections: [String] = ["Sort","Deals","Distance","Category"]
+    
     
     let dealsCode = "deals"
     
+//    let CaseCategory = 0
+//    let CaseDistance = 1
+//    let CaseSort = 2
+//    let CaseDeals = 3
+
     let CaseCategory = 0
-    let CaseDistance = 1
-    let CaseSort = 2
-    let CaseDeals = 3
+    let CaseDistance = 3
+    let CaseSort = 1
+    let CaseDeals = 2
     
     let categoriesDictionary: [[String: String]] =
     [["name" : "Afghan", "code": "afghani"],
-    ["name" : "African", "code": "african"],
+   ["name" : "African", "code": "african"],
     ["name" : "American, New", "code": "newamerican"],
-//    ["name" : "American, Traditional", "code": "tradamerican"],
-//    ["name" : "Arabian", "code": "arabian"],
-//    ["name" : "Argentine", "code": "argentine"],
-//    ["name" : "Armenian", "code": "armenian"],
-//    ["name" : "Asian Fusion", "code": "asianfusion"],
-//    ["name" : "Asturian", "code": "asturian"],
-//    ["name" : "Australian", "code": "australian"],
-//    ["name" : "Austrian", "code": "austrian"],
-//    ["name" : "Baguettes", "code": "baguettes"],
+    ["name" : "American, Traditional", "code": "tradamerican"],
+    ["name" : "Arabian", "code": "arabian"],
+    ["name" : "Argentine", "code": "argentine"],
+    ["name" : "Armenian", "code": "armenian"],
+    ["name" : "Asian Fusion", "code": "asianfusion"],
+    ["name" : "Asturian", "code": "asturian"],
+    ["name" : "Australian", "code": "australian"],
+    ["name" : "Austrian", "code": "austrian"],
+    ["name" : "Baguettes", "code": "baguettes"]]
 //    ["name" : "Bangladeshi", "code": "bangladeshi"],
 //    ["name" : "Barbeque", "code": "bbq"],
 //    ["name" : "Basque", "code": "basque"],
@@ -199,7 +209,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
 //    ["name" : "Vietnamese", "code": "vietnamese"],
 //    ["name" : "Wok", "code": "wok"],
 //    ["name" : "Wraps", "code": "wraps"],
-   ["name" : "Yugoslav", "code": "yugoslav"]]
+//["name" : "Yugoslav", "code": "yugoslav"]]
 
     
     override func viewDidLoad() {
@@ -207,6 +217,13 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         filtersTableView.delegate = self
         filtersTableView.dataSource = self
+        
+        filtersTableView.estimatedRowHeight = 120
+        filtersTableView.rowHeight = UITableViewAutomaticDimension
+        
+        categories = categoriesDictionary
+        
+
 
         // Do any additional setup after loading the view.
     }
@@ -222,15 +239,20 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         dismissViewControllerAnimated(true, completion: nil)
         var filters = [String : AnyObject] ()
         var selectedCategories = [String] ()
-        for (row, isSelected) in switchStates
-        {
-        selectedCategories.append(categoriesDictionary[row]["code"]!)
+        if(switchStates != nil){
+            for (row, isSelected) in switchStates!
+            {
+                selectedCategories.append(categoriesDictionary[row]["code"]!)
+            }
+            if selectedCategories.count > 0
+            {
+                filters["categories"] = selectedCategories
+            }
         }
-        if selectedCategories.count > 0
-        {
-            filters["categories"] = selectedCategories
-        }
+        
         filters["deals"] = deals
+        filters["sort"] = selectedType
+        filters["distance"] = distance
         //filters[
         delegate?.filtersViewController!(self, didFiltersUpdate: filters)
     }
@@ -252,9 +274,16 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             let cell = tableView.dequeueReusableCellWithIdentifier("SwitchCell", forIndexPath: indexPath) as! SwitchCell
         cell.switchLabel.text = categoriesDictionary[indexPath.row]["name"]
         cell.delegate = self
+        //cell.onSwitch.on = switchStates![indexPath.row]!
+
         
-        cell.onSwitch.on  = switchStates[indexPath.row] ?? false
-        return cell
+            if(switchStates != nil){
+                cell.onSwitch.on = switchStates![indexPath.row]!
+            }
+            else{
+             cell.onSwitch.on  = false
+            }
+            return cell
             
         
         case CaseSort://Sort
@@ -280,7 +309,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("SwitchCell", forIndexPath: indexPath) as! SwitchCell
-            cell.switchLabel.text = categoriesDictionary[indexPath.row]["name"]
+          //  cell.switchLabel.text = categoriesDictionary[indexPath.row]["name"]
             cell.delegate = self
         
        return cell
@@ -306,7 +335,11 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     func switchCell(switchCell: SwitchCell, didChangeValue value: Bool) {
         let indexPath = filtersTableView.indexPathForCell(switchCell)!
         
-        switchStates[indexPath.row] = value
+        if(switchStates == nil) {
+            switchStates = [Int:Bool]()
+        }
+        
+        switchStates![indexPath.row] = value
         print ("filters view controller has the switch event")
     }
     
@@ -316,7 +349,15 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
        // filters[indexPath.row] = value
         print ("filters view controller has the switch event")
     }
-    /*
+    
+    func sortCell(sortCell: SortCell, sortValueChanged newSortValue: Int) {
+        let selectedType = newSortValue
+    }
+    
+    func distanceCell(distanceCell: DistanceCell, distanceValueChanged newDistanceValue: NSNumber) {
+        distance = newDistanceValue
+    }
+        /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
