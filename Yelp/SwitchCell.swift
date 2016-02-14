@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @objc protocol SwitchCellDelegate {
     optional func switchCell(switchCell: SwitchCell, didChangeValue value: Bool)
 }
@@ -17,12 +18,12 @@ class SwitchCell: UITableViewCell {
  weak var delegate: SwitchCellDelegate?
     
     @IBOutlet weak var switchLabel: UILabel!
-    @IBOutlet weak var onSwitch: UISwitch!
-   
+   @IBOutlet weak var onSwitch: UISwitch!
+    //@IBOutlet weak var onSwitch: SevenSwitch!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+       // self.view.addSubview(onSwitch)
         onSwitch.addTarget(self, action: "switchValueChanged", forControlEvents: UIControlEvents.ValueChanged)
     }
     

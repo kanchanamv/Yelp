@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIScrollView_InfiniteScroll
 
 class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, FiltersViewControllerDelegate
 {
@@ -29,11 +30,24 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         // searchBar = UISearchBar()
         navigationItem.titleView = searchBar
         
-        Business.searchWithTerm(searchBar.text!, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+        let navBarColor = navigationController!.navigationBar
+        navBarColor.barTintColor = UIColor(red:  255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 100.0/100.0)
+        
+        tableView.infiniteScrollIndicatorStyle = .Gray
+        
+        applySearchOnText("")
+        
+        // Set custom indicator margin
+        tableView.infiniteScrollIndicatorMargin = 40
+        
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+        Business.searchWithTerm(self.searchBar.text!, completion: { (businesses: [Business]!, error: NSError!) -> Void in
             
             print (self.searchBar.text!)
             self.businesses = businesses
             self.tableView.reloadData()
+            tableView.finishInfiniteScroll()
             
             for business in businesses {
                 print(business.name!)
@@ -42,7 +56,7 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
             }
             self.searchBar.endEditing(true)
             
-        })
+        })}
         
         /* Example of Yelp search with more search options specified
         Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in

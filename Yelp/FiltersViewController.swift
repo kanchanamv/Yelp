@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SevenSwitch
 
 @objc protocol FiltersViewControllerDelegate {
    optional func filtersViewController(filtersViewController: FiltersViewController, didFiltersUpdate filters: [String:AnyObject])
@@ -23,7 +24,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     var selectedType = 0
     var distance : NSNumber = 1609
     var categories: [[String: String]]!
-    var FilterSections: [String] = ["Category","Sort","Deals","Distance"]
+    var FilterSections: [String] = ["Categories","Sort","Deals","Distance"]
     
     //var FilterSections: [String] = ["Sort","Deals","Distance","Category"]
     
@@ -301,6 +302,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
             let cell = tableView.dequeueReusableCellWithIdentifier("DealsCell", forIndexPath: indexPath) as! DealsCell
             print ("Inside DealsCell")
+
             cell.delegate = self
             return cell
         

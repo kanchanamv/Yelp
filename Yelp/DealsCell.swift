@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SevenSwitch
 
 @objc protocol DealsCellDelegate {
     optional func dealCell(dealCell: DealsCell, didChangeValue value: Bool)
@@ -20,7 +21,7 @@ class DealsCell: UITableViewCell {
    weak var delegate: DealsCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+//        // Initialization code//        
         
         dealsSwitch.addTarget(self, action: "dealsValueChanged", forControlEvents: UIControlEvents.ValueChanged)
     }
@@ -29,6 +30,7 @@ class DealsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
     }
     
     func dealsValueChanged()

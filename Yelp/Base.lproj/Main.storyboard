@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--YelpIt-->
@@ -129,6 +128,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="YelpIt" id="s0M-YF-Eqe">
                         <barButtonItem key="leftBarButtonItem" title="Filters" id="HNu-yR-gyn">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="JbD-n3-h5R" kind="modal" id="3Gn-En-K6e"/>
                             </connections>
@@ -167,6 +167,8 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ld-nv-Yas">
                                                     <rect key="frame" x="253" y="28" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.9500468373298645" green="0.294655442237854" blue="0.10060865432024002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="thumbTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9t-5i-QXa">
                                                     <rect key="frame" x="22" y="33" width="42" height="21"/>
@@ -194,13 +196,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-rR-EBN">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-rR-EBN">
                                                     <rect key="frame" x="14" y="30" width="290" height="29"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <segments>
                                                         <segment title="Within 1 Mile"/>
                                                         <segment title="Within 5 Miles"/>
                                                         <segment title="Within 10 Miles"/>
                                                     </segments>
+                                                    <color key="tintColor" red="0.9500468373298645" green="0.294655442237854" blue="0.10060865432024002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -228,6 +232,7 @@
                                                         <segment title="Distance"/>
                                                         <segment title="High Ratings"/>
                                                     </segments>
+                                                    <color key="tintColor" red="0.9500468373298645" green="0.294655442237854" blue="0.10060865432024002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -248,8 +253,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-T5-xg1">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-T5-xg1">
                                                     <rect key="frame" x="252" y="28" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.9500468373298645" green="0.294655442237854" blue="0.10060865432024002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="thumbTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offering Deals?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP6-Mc-Qt2">
                                                     <rect key="frame" x="24" y="28" width="119" height="21"/>
@@ -259,11 +266,8 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lgV-T5-xg1" firstAttribute="top" secondItem="9d2-X7-X82" secondAttribute="topMargin" constant="20" id="12p-3l-sCf"/>
-                                                <constraint firstAttribute="bottom" secondItem="lgV-T5-xg1" secondAttribute="bottom" constant="28" id="B1W-Kg-rrH"/>
                                                 <constraint firstItem="OP6-Mc-Qt2" firstAttribute="leading" secondItem="9d2-X7-X82" secondAttribute="leading" constant="24" id="cvw-PM-lNL"/>
                                                 <constraint firstItem="OP6-Mc-Qt2" firstAttribute="top" secondItem="9d2-X7-X82" secondAttribute="top" constant="28" id="ij7-J1-SBm"/>
-                                                <constraint firstAttribute="trailing" secondItem="lgV-T5-xg1" secondAttribute="trailing" constant="19" id="lKE-K2-UfR"/>
                                                 <constraint firstAttribute="bottom" secondItem="OP6-Mc-Qt2" secondAttribute="bottom" constant="38" id="muH-7s-ZCX"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -286,11 +290,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="qcG-9p-aiL">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="GAq-yh-zLa">
+                            <color key="tintColor" red="0.9500468373298645" green="0.294655442237854" blue="0.10060865432024002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="filtersOnCancel:" destination="PgM-ie-waW" id="SCy-Nj-IRm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="27f-9c-GHd">
+                            <color key="tintColor" red="0.9500468373298645" green="0.294655442237854" blue="0.10060865432024002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="filtersOnSearch:" destination="PgM-ie-waW" id="s4X-9K-mfO"/>
                             </connections>
