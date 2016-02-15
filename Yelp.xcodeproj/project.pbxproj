@@ -16,6 +16,7 @@
 		22AAAA991AEA0A9700A544AF /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AAAA981AEA0A9700A544AF /* Business.swift */; };
 		22AAAA9C1AEA1EC300A544AF /* BusinessesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AAAA9B1AEA1EC300A544AF /* BusinessesViewController.swift */; };
 		843F5A131C713E3600EBDC36 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F5A121C713E3600EBDC36 /* MapViewController.swift */; };
+		843F5A151C71779E00EBDC36 /* Yelp Homework 2 Video Walkthrough.gif in Resources */ = {isa = PBXBuildFile; fileRef = 843F5A141C71779E00EBDC36 /* Yelp Homework 2 Video Walkthrough.gif */; };
 		84BF86C11C6D0E2B0041F614 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF86C01C6D0E2B0041F614 /* BusinessCell.swift */; };
 		84CDCA1C1C6E68ED001982F3 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDCA1B1C6E68ED001982F3 /* FiltersViewController.swift */; };
 		84CDCA201C6E9DD1001982F3 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDCA1F1C6E9DD1001982F3 /* SwitchCell.swift */; };
@@ -51,6 +52,7 @@
 		22AAAA9B1AEA1EC300A544AF /* BusinessesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessesViewController.swift; sourceTree = "<group>"; };
 		843F5A111C71274000EBDC36 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		843F5A121C713E3600EBDC36 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		843F5A141C71779E00EBDC36 /* Yelp Homework 2 Video Walkthrough.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "Yelp Homework 2 Video Walkthrough.gif"; path = "../Yelp Homework 2 Video Walkthrough.gif"; sourceTree = "<group>"; };
 		84BF86C01C6D0E2B0041F614 /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		84CDCA1B1C6E68ED001982F3 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		84CDCA1F1C6E9DD1001982F3 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		222D8A4C19CCF9F900D2DB53 = {
 			isa = PBXGroup;
 			children = (
+				843F5A141C71779E00EBDC36 /* Yelp Homework 2 Video Walkthrough.gif */,
 				84CDCA211C6EDA6A001982F3 /* README.md */,
 				222D8A5719CCF9F900D2DB53 /* Yelp */,
 				222D8A6D19CCF9F900D2DB53 /* YelpTests */,
@@ -285,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843F5A151C71779E00EBDC36 /* Yelp Homework 2 Video Walkthrough.gif in Resources */,
 				222D8A6019CCF9F900D2DB53 /* Main.storyboard in Resources */,
 				222D8A6519CCF9F900D2DB53 /* LaunchScreen.xib in Resources */,
 				222D8A6219CCF9F900D2DB53 /* Images.xcassets in Resources */,

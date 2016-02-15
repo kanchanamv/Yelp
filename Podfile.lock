@@ -23,25 +23,19 @@ PODS:
   - BDBOAuth1Manager (1.6.0):
     - AFNetworking/NSURLConnection (~> 2.6.0)
     - AFNetworking/NSURLSession (~> 2.6.0)
-  - ICSPullToRefresh (0.3)
   - SevenSwitch (2.0.0)
-  - SVPullToRefresh (HEAD based on 0.4.1)
   - UIScrollView-InfiniteScroll (0.7.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - BDBOAuth1Manager
-  - ICSPullToRefresh (~> 0.3)
   - SevenSwitch (~> 2.0)
-  - SVPullToRefresh (HEAD)
   - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BDBOAuth1Manager: cd5a5872f355ca38180d52ca2dd844f0b0c84797
-  ICSPullToRefresh: 6ccda740c475f7e6dc157553518bfae32fa2cb57
   SevenSwitch: 4ae92ffcad0ef93b38553b39a25e753c94eb7847
-  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
 
 COCOAPODS: 0.39.0
