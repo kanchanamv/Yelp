@@ -51,9 +51,10 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
                     for business in businesses {
                         self.businesses.append(business)
                         
-//                        print(business.name!)
-//                        print(business.address!)
-//                        print (business.categories!)
+                        print(business.name!)
+                        print(business.address!)
+                        print (business.categories!)
+                        
                     }
                     self.searchBar.endEditing(true)
                     

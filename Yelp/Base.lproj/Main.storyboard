@@ -133,6 +133,9 @@
                                 <segue destination="JbD-n3-h5R" kind="modal" id="3Gn-En-K6e"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="oFW-QH-C0k">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="prO-ve-FA5" id="cGD-Ny-ILm"/>
@@ -140,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="338"/>
+            <point key="canvasLocation" x="2017" y="338"/>
         </scene>
         <!--Filters View Controller-->
         <scene sceneID="lfV-aU-5S0">
@@ -196,7 +199,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-rR-EBN">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-rR-EBN">
                                                     <rect key="frame" x="14" y="30" width="290" height="29"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <segments>
@@ -308,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pck-lA-r2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416" y="319"/>
+            <point key="canvasLocation" x="2948" y="319"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aVj-Uh-z51">
@@ -326,7 +329,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q30-cI-84f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="343"/>
+            <point key="canvasLocation" x="1716" y="86"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dEZ-di-KR3">
@@ -344,7 +347,49 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doG-Tc-cIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1884" y="319"/>
+            <point key="canvasLocation" x="2416" y="319"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Mxv-YE-vgt">
+            <objects>
+                <viewController id="gNM-yl-FRi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zrX-Xc-MQh"/>
+                        <viewControllerLayoutGuide type="bottom" id="KdK-fW-ccH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YSu-nm-n9Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f30-Os-7xY">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kf9-80-x9M"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bXG-T4-Ysg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1268" y="86"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Y9t-gm-59O">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FJI-yQ-VsJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8PD-94-tQG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gNM-yl-FRi" kind="relationship" relationship="rootViewController" id="0je-1g-lgz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F7V-3T-j4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="86"/>
         </scene>
     </scenes>
 </document>

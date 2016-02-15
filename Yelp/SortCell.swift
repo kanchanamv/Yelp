@@ -9,7 +9,8 @@
 import UIKit
 
 @objc protocol SortCellDelegate {
-    optional func sortCell(sortCell: SortCell, sortValueChanged newSortValue: Int)
+    optional func sortCell(sortCell: SortCell, sortValueChanged newSortValue: NSNumber)
+    
 }
 
 class SortCell: UITableViewCell {
@@ -33,8 +34,25 @@ class SortCell: UITableViewCell {
     
     func sortFilterChanged()
     {
-        delegate!.sortCell!(self, sortValueChanged: sortSegments.selectedSegmentIndex)
+        var sortValue = 0
+        switch sortSegments.selectedSegmentIndex
+        {
+        case 0:
+            
+            sortValue = 0
+            
+        case 1:
+            sortValue = 1
+            
+        case 2:
+            sortValue = 2
+            
+        default:
+            sortValue = 1
+        }
+        delegate!.sortCell!(self, sortValueChanged:sortValue)
+        //print(sortValue)
     }
-
+    
 
 }
